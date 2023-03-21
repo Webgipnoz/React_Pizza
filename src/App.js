@@ -9,6 +9,14 @@ import "./scss/app.scss";
 import pizzas from "./Pizza.json";
 
 function App() {
+  fetch("https://641a4369f398d7d95d53c155.mockapi.io/items")
+    .then((res) => {
+      return res.json();
+    })
+    .then((arr) => {
+      console.log("Массив", arr);
+    });
+
   return (
     <div className="wrapper">
       <Header />
