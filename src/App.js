@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "./components/Header";
 import Home from "./Pages/Home";
+import NotFound from "./Pages/NotFound";
 
 import "./scss/app.scss";
 
@@ -11,7 +12,7 @@ function App() {
       <Header />
       <div className="content">
         <div className="container">
-          <Home />
+          <NotFound />
         </div>
       </div>
     </div>
