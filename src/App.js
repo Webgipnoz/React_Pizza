@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./Pages/Home";
@@ -12,7 +13,10 @@ function App() {
       <Header />
       <div className="content">
         <div className="container">
-          <NotFound />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </div>
