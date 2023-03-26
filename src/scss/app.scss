@@ -36,10 +36,14 @@ body {
     justify-content: space-between;
 
     @media (max-width: 1260px) {
-      flex-direction: column-reverse;
-
       .categories {
         margin-top: 30px;
+        width: 785px;
+        overflow: scroll;
+
+        .ul {
+          width: 785px;
+        }
       }
     }
   }
