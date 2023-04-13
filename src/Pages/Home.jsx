@@ -16,10 +16,13 @@ const Home = ({ searchValue }) => {
 
   useEffect(() => {
     setIsLoading(true);
+
+    const sortBy = sortType.sortProperty;
+    const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : "";
+
     fetch(
-      `https://641a4369f398d7d95d53c155.mockapi.io/items?${
-        categoryId > 0 ? `category=${categoryId}` : ""
-      }&sortBy=${sortType.sortProperty}&order=desc`
+      `https://641a4369f398d7d95d53c155.mockapi.io/items?${category}${search}&sortBy=${sortBy}&order=desc`
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -27,7 +30,7 @@ const Home = ({ searchValue }) => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, searchValue]);
 
   return (
     <div className="container">

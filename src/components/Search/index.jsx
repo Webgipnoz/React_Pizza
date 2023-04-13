@@ -5,7 +5,12 @@ import styles from "./Search.module.scss";
 const Search = ({ searchValue, setSearchValue }) => {
   return (
     <div>
-      <input className={styles.root} placeholder="Поиск пиццы..."></input>;
+      <input
+        value={searchValue}
+        onChange={(event) => setSearchValue(event.target.value)}
+        className={styles.root}
+        placeholder="Поиск пиццы..."
+      ></input>
     </div>
   );
 };

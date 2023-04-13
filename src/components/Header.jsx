@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 
-function Header(searchValue, setSearchValue) {
+function Header({ searchValue, setSearchValue }) {
   return (
     <div className="header">
       <div className="container">
