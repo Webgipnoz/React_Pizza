@@ -10,16 +10,12 @@ import { SearchContext } from "../App";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.filterSlice.categoryId);
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const sortType = useSelector((state) => state.filter.sort.sortProperty);
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState({
-    name: "популярности",
-    sortProperty: "rating",
-  });
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -28,7 +24,7 @@ const Home = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    const sortBy = sortType.sortProperty;
+    const sortBy = sortType;
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -47,7 +43,7 @@ const Home = () => {
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
